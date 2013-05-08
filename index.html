@@ -1,0 +1,50 @@
+<head>
+</head>
+<body>
+  <script type="text/javascript" src="lib/ascii-animator.js"></script>
+  <div id='one' style='font-size:12px;font-family:monospace;'>asdf</div>
+  <div id='two' style='font-size:12px;font-family:monospace;'>asdf</div>
+  <div id='three' style='font-size:12px;font-family:monospace;'>asdf</div>
+  <div id='four' style='font-size:12px;font-family:monospace;'>asdf</div>
+  <div id='five' style='font-size:12px;font-family:monospace;'>asdf</div>
+  <script type="text/javascript">
+    frames = [
+      '&#x2219;&#x2219;&#x2219;&#x2219;',
+      '&#x2022;&#x2219;&#x2219;&#x2219;',
+      '&#x25CF;&#x2219;&#x2219;&#x2219;',
+      '&#x2219;&#x25CF;&#x2219;&#x2219;',
+      '&#x2219;&#x2219;&#x25CF;&#x2219;',
+      '&#x2219;&#x2219;&#x2219;&#x25CF;',
+      '&#x2219;&#x2219;&#x2219;&#x2022;',
+      '&#x2219;&#x2219;&#x2219;&#x2219;'
+    ];
+    new AsciiAnimator('one', frames, 120, 'right', false).run();
+
+    new AsciiAnimator('two', ["|", "/", "-", "\\"], 120, 'right', false).run();
+
+    frames = [
+      ".&nbsp;<br/>&nbsp;&nbsp;",
+      "&nbsp;.<br/>&nbsp;&nbsp;",
+      "&nbsp;&nbsp;<br/>&nbsp;.",
+      "&nbsp;&nbsp;<br/>.&nbsp;",
+    ];
+    new AsciiAnimator('three', frames, 200, 'right', false).run();
+
+    frames = ['.', 'o', 'O', '@', '*'];
+    new AsciiAnimator('four', frames, 200, 'right', false).run();
+
+    frames = [
+      ">))'>",
+      "&nbsp;>))'>",
+      "&nbsp;&nbsp;>))'>",
+      "&nbsp;&nbsp;&nbsp;>))'>",
+      "&nbsp;&nbsp;&nbsp;&nbsp;>))'>",
+      "&nbsp;&nbsp;&nbsp;&nbsp;<'((<",
+      "&nbsp;&nbsp;&nbsp;<'((<",
+      "&nbsp;&nbsp;<'((<",
+      "&nbsp;<'((<",
+      "<'((<"
+    ];
+    new AsciiAnimator('five', frames, 200, 'right', false).run();
+  </script>
+</body>
