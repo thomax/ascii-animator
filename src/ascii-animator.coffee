@@ -4,8 +4,7 @@ class AsciiAnimator
     @index = 0
 
   run: ->
-    console.log('running')
-    @element.innerHTML = @frames[@index]
+    @element.innerHTML = @frames[@index].replace(new RegExp(' ', 'g'), '&nbsp;');
     @setNextIndex()
     self = this
     setTimeout (() ->
