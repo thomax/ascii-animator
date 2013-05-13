@@ -1,15 +1,18 @@
 class AsciiAnimator
-  constructor: (id, @frames, @wait, @direction, @reverse) ->
-    @element = document.getElementById(id)
+  constructor: (@element, @frames, @wait, @direction, @reverse) ->
     @index = 0
 
   run: ->
+    @stop()
     @element.innerHTML = @frames[@index].replace(new RegExp(' ', 'g'), '&nbsp;');
     @setNextIndex()
     self = this
-    setTimeout (() ->
+    @timer = setTimeout (() ->
       self.run()
     ), @wait
+
+  stop: ->
+    clearTimeout(@timer)
 
   setNextIndex: ->
     if (@direction == 'right')
@@ -29,4 +32,4 @@ class AsciiAnimator
       else
         @index--
 
-window.AsciiAnimator = AsciiAnimator
+module.exports = AsciiAnimator
