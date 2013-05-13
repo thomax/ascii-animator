@@ -1,7 +1,8 @@
-ascii-animator
-==============
+# ascii-animator
 
 A flimsy lil thing for animating a series of ascii characters on an html page.
+
+## Example
 
     <div id='one'></div>
     <script type="text/javascript" src="lib/ascii-animator.js"></script>
