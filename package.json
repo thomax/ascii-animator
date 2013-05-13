@@ -1,6 +1,6 @@
 {
   "name": "ascii-animator",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "author": "Thomas Drevon <thomas@bengler.no>",
   "description": "A flimsy little thing to animate characters inside an html page",
   "repository": {
