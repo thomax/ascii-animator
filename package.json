@@ -1,19 +1,19 @@
 {
-  name: "ascii-animator",
-  version: "0.0.1",
-  author: "Thomas Drevon <thomas@bengler.no>",
-  description: "A flimsy little thing to animate characters inside an html page",
-  repository: {
-    type: "git",
-    url: "https://github.com/thomax/ascii-animator.git"
+  "name": "ascii-animator",
+  "version": "0.0.0",
+  "author": "Thomas Drevon <thomas@bengler.no>",
+  "description": "A flimsy little thing to animate characters inside an html page",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/thomax/ascii-animator.git"
   },
-  engines: {
-    node: ">=0.10.4"
+  "engines": {
+    "node": ">=0.10.4"
   },
-  main: "lib/ascii-animator.js",
-  dependencies: {
+  "main": "lib/ascii-animator.js",
+  "dependencies": {
   },
-  devDependencies: {
-    coffee-script: "~1.3.2"
+  "devDependencies": {
+    "coffee-script": "~1.3.2"
   }
 }
