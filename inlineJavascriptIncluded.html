@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="no">
+  <head>
+    <meta charset="utf-8" >
+  </head>
+  <body>
+    <style type="text/css">
+      body {
+        font-size: 12px;
+        font-family: monospace;
+      }
+      div {
+        height: 60px;
+        border: 1px solid #ddd;
+        padding: 10px;
+        margin: 10px;
+        width: 60px;
+      }
+    </style>
+
+    <div id='one'></div>
+    <div id='two'></div>
+    <div id='three'></div>
+    <div id='four'></div>
+    <div id='five'></div>
+    <div id='six'></div>
+    <div id='seven'></div>
+    <div id='eight'></div>
+    <div id='nine'></div>
+    <div id='ten'></div>
+    <div id='eleven'></div>
+    <div id='twelve'></div>
+
+    <script type="text/javascript">
+      class AsciiAnimator {
+
+        constructor(elementId, frames, wait, direction, reverse) {
+          this.element = document.getElementById(elementId);
+          this.frames = frames;
+          this.wait = wait;
+          this.direction = direction;
+          this.reverse = reverse;
+          this.index = 0; 
+        }
+
+        run() {
+          var self;
+          this.stop();
+          this.element.innerHTML = this.frames[this.index].replace(new RegExp(' ', 'g'), '&nbsp;');
+          this.setNextIndex();
+          self = this;
+
+          return this.timer = setTimeout((function() {
+            return self.run();
+          }), this.wait);
+        }
+
+        stop() {
+          return clearTimeout(this.timer);
+        };
+
+        setNextIndex() {
+          if (this.direction === 'right') {
+            if (this.index === this.frames.length - 1) {
+              if (this.reverse) {
+                return this.direction = 'left';
+              } else {
+                return this.index = 0;
+              }
+            } else {
+              return this.index++;
+            }
+          } else if (this.direction === 'left') {
+            if (this.index === 0) {
+              if (this.reverse) {
+                return this.direction = 'right';
+              } else {
+                return this.index = this.frames.length - 1;
+              }
+            } else {
+              return this.index--;
+            }
+          }
+        };
+      }
+    </script>
+
+    <script type="text/javascript">
+      frames = [
+        '&#x2219;&#x2219;&#x2219;&#x2219;',
+        '&#x2022;&#x2219;&#x2219;&#x2219;',
+        '&#x25CF;&#x2219;&#x2219;&#x2219;',
+        '&#x2219;&#x25CF;&#x2219;&#x2219;',
+        '&#x2219;&#x2219;&#x25CF;&#x2219;',
+        '&#x2219;&#x2219;&#x2219;&#x25CF;',
+        '&#x2219;&#x2219;&#x2219;&#x2022;',
+        '&#x2219;&#x2219;&#x2219;&#x2219;'
+      ];
+      new AsciiAnimator('one', frames, 120, 'right', false).run();
+
+      new AsciiAnimator('two', ["|", "/", "-", "\\"], 120, 'right', false).run();
+
+      frames = [
+        ". <br/>  <br/>",
+        " .<br/>  <br/>",
+        "  <br/> .<br/>",
+        "  <br/>. <br/>",
+      ];
+      new AsciiAnimator('three', frames, 200, 'right', false).run();
+
+      frames = ['.', 'o', 'O', '@', '*'];
+      new AsciiAnimator('four', frames, 200, 'right', false).run();
+
+      frames = [
+        ">))'>",
+        " >))'>",
+        "  >))'>",
+        "   >))'>",
+        "    >))'>",
+        "    <'((<",
+        "   <'((<",
+        "  <'((<",
+        " <'((<",
+        "<'((<"
+      ];
+      new AsciiAnimator('five', frames, 300, 'right', false).run();
+
+      frames = [
+        "bo<br/>oo",
+        "do<br/>oo",
+        "ob<br/>oo",
+        "od<br/>oo",
+        "oo<br/>oq",
+        "oo<br/>op",
+        "oo<br/>qo",
+        "oo<br/>po"
+      ];
+      new AsciiAnimator('six', frames, 100, 'right', false).run();
+
+      frames = [
+        ".   <br/>    <br/>    ",
+        " .  <br/>    <br/>    ",
+        "  . <br/>    <br/>    ",
+        "   .<br/>    <br/>    ",
+        "    <br/>   .<br/>    ",
+        "    <br/>    <br/>   .",
+        "    <br/>    <br/>  . ",
+        "    <br/>    <br/> .  ",
+        "    <br/>    <br/>.   ",
+        "    <br/>.   <br/>    "
+      ];
+      new AsciiAnimator('seven', frames, 100, 'right', false).run();
+
+      frames = ['▁', '▃', '▄', '▅', '▆', '▇'];
+      new AsciiAnimator('eight', frames, 70, 'right', true).run();
+
+      frames = ['←', '↖', '↑', '↗', '→', '↘', '↓', '↙'];
+      new AsciiAnimator('nine', frames, 200, 'right', false).run();
+
+      frames = ['┤', '┘', '┴', '└', '├', '┌', '┬', '┐'];
+      new AsciiAnimator('ten', frames, 180, 'right', false).run();
+
+      frames = ['0', '¼', '½', '¾', '1'];
+      new AsciiAnimator('eleven', frames, 320, 'right', true).run();
+
+      frames = ['▉','▊','▋','▌','▍','▎','▏'];
+      new AsciiAnimator('twelve', frames, 180, 'right', true).run();
+    </script>
+  </body>
+</html>
